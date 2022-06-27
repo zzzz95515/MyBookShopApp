@@ -32,7 +32,7 @@ public class BookService {
         return new ArrayList<>(books);
     }
     public List<Author> getAuthors(){
-        List<Author> authors = jdbcTemplate.query("Select * from authors",(ResultSet rs, int rowNum) -> {
+        List<Author> authors = jdbcTemplate.query("Select * from authors ORDER by author",(ResultSet rs, int rowNum) -> {
             Author author = new Author();
             author.setAuthor(rs.getString("author"));
             return author;
